@@ -1,0 +1,296 @@
+/* Ensure the html and body have no scaling issues */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent horizontal scroll */
+    font-family: Arial, sans-serif; /* Ensure consistent fonts */
+    box-sizing: border-box; /* Make sure padding and borders are included in element width/height */
+}
+
+/* Avatar container styling */
+.avatar-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #efe1b4;
+    min-height: 100vh; /* Full page height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Reduced padding */
+    box-sizing: border-box;
+}
+
+/* Title text - Keeps the title centered horizontally */
+.avatar-title-container {
+    width: 100%; /* Full width of the screen */
+    display: flex;
+    justify-content: center; /* Center title horizontally */
+    margin-bottom: 20px; /* Reduce margin */
+    padding-top: 70px;
+}
+
+/* Avatar Title Styling */
+.avatar-title {
+    font-size: 1.8rem; /* Slightly reduced font size */
+    color: #ed886a; /* Title color */
+    font-weight: bold;
+    text-align: center;
+    margin: 0; /* Remove any default margin */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.avatar-title:hover {
+    color: #9b59b6; /* Hover color */
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+/* Avatar Collection Styling - Adding grid-like effect */
+.avatar-collection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px; /* Reduced space */
+}
+
+/* Avatar Grid styling */
+.avatar-collection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+    gap: 25px; /* Reduced gap for better spacing */
+    max-width: 100%; /* Ensure grid doesn't overflow */
+    padding: 0 5px; /* Reduce padding */
+    border-radius: 10px; /* Optional: Add rounded corners to the grid */
+    padding: 20px; /* Add padding around the avatars */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .avatar-collection {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .avatar-collection {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar-collection {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+}
+
+/* Avatar Item Styling with borders and shadow */
+.avatar-item {
+    width: 110px; /* Avatar size */
+    height: 110px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+    background-color: #b2c6a5;
+}
+
+/* Hover Effect for Avatar - Slight zoom and border highlight */
+.avatar-item:hover {
+    transform: scale(1.08); /* Zoom effect on hover */
+    border-color: #9b59b6; /* Highlight border on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Avatar Item Selected Styling - Show selected avatar with border */
+.avatar-item.selected {
+    border: 3px solid #8e44ad; /* Strong border to highlight selected avatar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slight shadow to highlight selection */
+}
+
+/* Styling for the Regenerate Avatars button */
+.avatar-button-regenerate {
+    background-color: #7da0ca;
+    color: white;
+    margin: 4px; /* Slightly reduced margin */
+    padding: 5px 12px; /* Reduce padding */
+    font-size: 14px; /* Slightly reduced font size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 140px; /* Reduce width */
+    font-weight: bold;
+    color: white;
+    padding: 10px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-button-regenerate:hover {
+    background-color: #527ba0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Styling for the instruction text above the regenerate button */
+.avatar-instruction {
+    font-size: 1.4rem; /* Reduced font size */
+    color: #555555; /* Dark gray for the instruction text */
+    text-align: center;
+    margin-bottom: 12px; /* Reduce space */
+    font-weight: normal;
+}
+
+/* Container for buttons, positioned to the left and centered vertically */
+.buttons-container {
+    position: absolute;
+    left: 25px; /* Move closer to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+/* Ensure buttons are consistent in size */
+.avatar-button.primary, .avatar-button.secondary {
+    width: 130px; /* Slightly reduced width */
+    min-width: 140px;
+    max-width: 140px;
+}
+
+/* Primary Button Styling */
+.avatar-button.primary {
+    background-color: #aa85b9;
+    color: white;
+    margin: 4px;
+    padding: 10px 18px; /* Reduce padding */
+    font-size: 12px; /* Reduce font size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.avatar-button.primary:hover  {
+    background-color: #8e44ad;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Secondary Button Styling */
+.avatar-button.secondary {
+    background-color: #aa85b9;
+    color: white;
+    margin: 4px;
+    padding: 10px 18px; /* Reduce padding */
+    font-size: 12px; /* Reduce font size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.avatar-button.secondary:hover  {
+    background-color: #8e44ad;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset any scaling issues when zooming */
+html {
+    transform: none;
+    font-size: 85%; /* Reduce overall font size slightly */
+    transform-origin: top left;
+}
+
+/* Styling for the Continue button */
+.continue-button {
+    background-color: #7db8b7; 
+    color: white;
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 140px;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.continue-button:hover {
+    background-color: #4d8c8b;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* New class to align buttons horizontally */
+.buttons-container-horizontal {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 15px; /* Adds space between the buttons */
+    margin-top: 20px; /* Optional: Adds space above the button row */
+}
+
+/*media query*/
+@media (max-width: 1024px) {
+    .avatar-collection {
+        grid-template-columns: repeat(2, 1fr); /* 2 avatars per row */
+    }
+    .avatar-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .avatar-collection {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .avatar-title {
+        font-size: 1.6rem;
+    }
+    .buttons-container-horizontal {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar-collection {
+        grid-template-columns: 1fr; /* 1 avatar per row */
+        gap: 10px;
+    }
+    .avatar-title {
+        font-size: 1.4rem;
+    }
+    .buttons-container-horizontal {
+        flex-direction: column;
+    }
+    .avatar-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttons-container {
+        position: static;
+        align-items: center;
+        justify-content: center;
+        transform: none;
+        margin-top: 20px;
+    }
+}

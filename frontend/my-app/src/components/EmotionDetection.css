@@ -1,0 +1,197 @@
+/* Emotion Detection Container */
+.emotion-container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #efe1b4;
+  min-height: 100vh; /* Reduced height further */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* Further reduced padding */
+  overflow-y: auto; /* Enable vertical scrollbar if the content overflows */
+  max-height: 100vh; /* Limit the height of the container to the viewport height */
+}
+
+/* Welcome Message */
+.emotion-welcome {
+  font-size: 1.7rem; /* Further reduced font size */
+  font-weight: bold;
+  color: #ed886a;
+ 
+  margin-top: 5rem;
+  font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+}
+
+/* Notification Box (Smaller Size) */
+.emotion-notification {
+  background-color: #f0e7d3;
+  color: #9b59b6;
+  padding: 1.5rem 2.5rem; /* Smaller padding */
+  border-radius: 8px; /* Even smaller border radius */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  margin-bottom: 1rem; /* Reduced margin */
+  font-size: 1.2rem; /* Smaller font size */
+  border: 2px solid #9b59b6; /* Thinner border */
+  overflow-y: auto; /* Allow scroll for long notifications */
+  max-height: 200px; /* Limit height to ensure scrolling */
+}
+
+/* Styled Allow Camera Button (Smaller Size) */
+.allow-camera-btn {
+  padding: 0.8rem 1.5rem; /* Smaller padding */
+  border: none;
+  border-radius: 5px; /* Smaller border radius */
+  font-size: 1rem; /* Smaller font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 130px; /* Reduced width */
+  background-color: #aa85b9;
+  color: white;
+  margin-top: 1rem; /* Reduced margin */
+  border: 1.5px solid #8e44ad; /* Thinner border */
+}
+
+.allow-camera-btn:hover {
+  background-color: #8e44ad;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Video Stream Container */
+.emotion-video-container {
+  background-color: #f0e7d3;
+  padding: 1.2rem; /* Reduced padding */
+  border-radius: 12px; /* Smaller border radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 1.5px solid #e8cfc4; /* Thinner border */
+  max-width: 700px; /* Limiting the width of the container */
+  width: 90%; /* Make the container responsive */
+  height: 75vh; /* Prevent overflowing of video container */
+  overflow-y: auto; /* Allow scroll if needed */
+ 
+}
+
+/* Heading Style */
+.emotion-title {
+  font-size: 1.4rem; /* Further reduced font size */
+  color: #9b59b6;
+  font-weight: bold;
+  font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+  margin-bottom: 0.8rem; /* Reduced margin */
+}
+
+/* Webcam Styles */
+.emotion-webcam {
+  border-radius: 8px; /* Smaller border radius */
+  border: 3px solid #9b59b6; /* Thinner border */
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+  width: 80%; /* Reduce webcam width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 700px; /* Limit max width */
+  max-height: 360px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .emotion-welcome {
+    font-size: 1.4rem; /* Adjusted for smaller screens */
+  }
+
+  .emotion-title {
+    font-size: 1.6rem;
+  }
+
+  .emotion-video-container {
+    padding: 1rem; /* Reduced padding */
+  }
+
+  .emotion-notification {
+    font-size: 1.3rem; /* Smaller font size */
+    padding: 2rem; /* Further reduced padding */
+  }
+
+  .allow-camera-btn {
+    font-size: 1.1rem; /* Slightly smaller font */
+    padding: 0.8rem 2rem; /* Adjusted padding */
+  }
+
+  .emotion-webcam {
+    width: 70%; /* Smaller webcam size for smaller screens */
+    max-width: 400px; /* Limit max width */
+  }
+}
+
+@media (max-width: 480px) {
+  .emotion-welcome {
+    font-size: 1.2rem; /* Smaller for mobile */
+  }
+
+  .emotion-title {
+    font-size: 1.4rem;
+  }
+
+  .emotion-video-container {
+    padding: 1rem; /* Smaller padding */
+  }
+
+  .emotion-notification {
+    font-size: 1.2rem; /* Smaller font for mobile */
+    padding: 1.5rem; /* Further reduced padding */
+    border-width: 1px; /* Thinner border */
+  }
+
+  .allow-camera-btn {
+    font-size: 1rem; /* Smaller font size */
+    padding: 0.6rem 1.8rem; /* Adjusted padding for mobile */
+    min-width: 120px; /* Further reduced width */
+  }
+
+  .emotion-webcam {
+    width: 60%; /* Even smaller webcam size for mobile */
+    max-width: 300px; /* Limit max width */
+  }
+}
+
+
+/* Container for Back to Home button */
+.back-button-container {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  left: 20px;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+.home-button.secondary {
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+  background-color: #7da0ca; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-button.secondary:hover {
+  background-color: #527ba0;
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .home-button.secondary {
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-button.secondary {
+    font-size: 1.4rem;
+    padding: 1rem 1.8rem;
+  }
+}

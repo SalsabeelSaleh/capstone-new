@@ -1,0 +1,113 @@
+/* Ensure body and html take full height and allow scrolling */
+html, body {
+    height: 100%; /* Ensure the body and html take the full height */
+    margin: 0;
+    padding: 0;
+    overflow-y: auto !important; /* Ensure scrolling is allowed */
+    background-color: #efe1b4;
+    display: block;  /* Ensure block layout for scrolling */
+    scrollbar-width: thin; /* Ensure scrollbar is visible */
+    scrollbar-color: #888 #f1f1f1; /* Custom scrollbar colors */
+}
+
+/* Custom Scrollbar Styling for Webkit Browsers */
+::-webkit-scrollbar {
+    width: 10px;
+    display: block !important; /* Force scrollbar visibility */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Help Page Container */
+.help-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #efe1b4;
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 6rem 2rem 4rem; /* Adjusted padding */
+    width: 100%; /* Ensure the container stretches to full width */
+    max-width: 800px; /* Limiting max-width to 800px for better layout */
+    margin: 0 auto; /* Horizontally center the container */
+    transform: none; /* Removed scaling to ensure proper overflow */
+}
+
+/* Content Section */
+.help-content {
+    width: 100%;
+    text-align: left;
+    background: rgb(255, 240, 221);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titles and Sections */
+.help-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.help-section {
+    margin-bottom: 1.5rem;
+}
+
+.help-section h2 {
+    color: #444;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.help-section h3 {
+    color: #444;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Lists */
+.help-section ul, .help-section ol {
+    margin-left: 1.5rem;
+    color: #000000;
+}
+
+.help-section ul li, .help-section ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* Home Button */
+.help-button {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-left: 22.6rem;
+    background-color: #aa85b9;
+    color: white;
+   
+}
+
+.help-button:hover 
+{
+    background-color: #8e44ad;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
