@@ -1,23 +1,22 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext"; // Global language + userId context
-import "./LoginPage.css"; // Login page styling
+import { AuthContext } from "../context/AuthContext";
+import "./LoginPage.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { language, toggleLanguage, setUserId } = useContext(AuthContext); // grab language and update userId
+  const { language, toggleLanguage, setUserId } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
 
-  // Update input fields
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Submit login credentials to backend
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Clear old errors
 
     try {
       const response = await fetch("http://localhost:8000/auth/login", {
@@ -27,21 +26,21 @@ export default function LoginPage() {
       });
 
       if (!response.ok) {
-        setError("Invalid credentials");
+        const data = await response.json();
+        setError(data.message || (language === "en" ? "Password or username is incorrect 🤔" : "كلمة المرور أو اسم المستخدم غير صحيح 🤔 "));
         return;
       }
 
       const data = await response.json();
-      setUserId(data.user.id); // save userId globally
-      navigate("/main-page");  // go to main page after login
+      setUserId(data.user.id);
+      navigate("/main-page");
 
     } catch (err) {
       console.error("Login error:", err);
-      setError("Login failed");
+      setError(language === "en" ? "Login failed. Please try again." : "فشل تسجيل الدخول. حاول مرة أخرى.");
     }
   };
 
-  // Input fields structure
   const formFields = [
     { label: "Username:", labelAr: "اسم المستخدم:", name: "username", type: "text" },
     { label: "Password:", labelAr: "كلمة المرور:", name: "password", type: "password" },
@@ -51,7 +50,6 @@ export default function LoginPage() {
 
   return (
     <div className="login-container">
-      {/* Top Header */}
       <header className={`login-header ${language === "en" ? "rtl" : ""}`}>
         <h1 className="login-title1">{language === "en" ? "Abber" : "عَبِّرْ"}</h1>
         <button className="login-language-switch" onClick={toggleLanguage}>
@@ -63,7 +61,6 @@ export default function LoginPage() {
         {language === "en" ? "Welcome Back! Login 😊" : " 😊 مرحبًا بعودتك! تسجيل الدخول "}
       </h1>
 
-      {/* Login form */}
       <form className="login-form" onSubmit={handleSubmit} dir={language === "en" ? "ltr" : "rtl"}>
         {orderedFields.map((field) => (
           <label key={field.name} className="form-label">
@@ -78,12 +75,13 @@ export default function LoginPage() {
           </label>
         ))}
 
+        {error && <p className="error">{error}</p>}
+
         <button type="submit" className="login-button">
           {language === "en" ? "Login" : "تسجيل الدخول"}
         </button>
       </form>
 
-      {/* Footer navigation */}
       <p className="create-account-text" onClick={() => navigate("/create-account")}>
         {language === "en" ? "Don't have an account? Create one" : "ليس لديك حساب؟ قم بإنشاء واحد"}
       </p>
@@ -94,3 +92,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
