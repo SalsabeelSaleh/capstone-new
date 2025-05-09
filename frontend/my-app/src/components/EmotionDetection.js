@@ -10,6 +10,18 @@ const socket = io("http://localhost:8000", {
   transports: ["websocket"], // force websocket transport
 });
 
+
+// Emotion translation + emoji map
+const emotionTranslations = {
+  angry: { ar: "غاضب", emoji: "😠" },
+  disgust: { ar: "مشمئز", emoji: "🤢" },
+  fear: { ar: "خائف", emoji: "😨" },
+  happy: { ar: "سعيد", emoji: "😊" },
+  sad: { ar: "حزين", emoji: "😢" },
+  surprise: { ar: "مندهش", emoji: "😲" },
+  neutral: { ar: "محايد", emoji: "😐" },
+};
+
 export default function EmotionDetection() {
   const { language, toggleLanguage } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -79,7 +91,7 @@ export default function EmotionDetection() {
       <h1 className="emotion-welcome">
         {language === "en"
           ? "Welcome to Aaber Emotion Detection System 👋"
-          : " 👋 مرحبًا في نظام الكشف عن المشاعر عابر "}
+          : " 👋 مرحبًا في نظام الكشف عن المشاعر عبر "}
       </h1>
 
       {/* Ask for camera access if not yet granted */}
@@ -129,8 +141,20 @@ export default function EmotionDetection() {
           {emotion && (
             <div className="emotion-output">
               <h2>
-                {language === "en" ? "Detected Emotion: " : "العاطفة المكتشفة: "}
-                {emotion}
+              <h2>
+                {language === "en" ? (
+                  `Detected Emotion: ${emotion} ${
+                    emotionTranslations[emotion.toLowerCase()]?.emoji || ""
+                  }`
+                ) : (
+                  <span dir="auto">
+                    العاطفة المكتشفة:{" "}
+                    {emotionTranslations[emotion.toLowerCase()]?.ar || emotion}{" "}
+                    {emotionTranslations[emotion.toLowerCase()]?.emoji || ""}
+                  </span>
+                )}
+              </h2>
+                
               </h2>
             </div>
           )}
@@ -149,3 +173,7 @@ export default function EmotionDetection() {
     </div>
   );
 }
+
+
+
+
