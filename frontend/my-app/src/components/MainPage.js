@@ -119,7 +119,7 @@ export default function MainPage() {
           className="hero-button"
           //================================
           //================================
-          onClick={() => navigate("/EmotionDetection")}
+          onClick={() => navigate("/emotion-detection")}
           //================================
           //================================
           whileHover={{ scale: 1.1 }}
