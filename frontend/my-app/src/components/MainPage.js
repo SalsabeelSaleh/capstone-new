@@ -23,7 +23,7 @@ export default function MainPage() {
 
   // Top nav items with dynamic language and user profile route
   const navItems = [
-    { path: "/main-page", label: language === "en" ? "Home" : "الرئيسية" },
+    
     { path: `/profile/${userId}`, label: language === "en" ? "Profile" : "الملف الشخصي" },
     // { 
     //   path: userId ? `/profile/${userId}` : "/login", 
