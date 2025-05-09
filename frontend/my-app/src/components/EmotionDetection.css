@@ -156,6 +156,14 @@
 }
 
 
+
+.emotion-output{
+  font-size: 0.7rem;
+  color: #9b59b6;
+
+}
+
+
 /* Container for Back to Home button */
 .back-button-container {
   display: flex;
