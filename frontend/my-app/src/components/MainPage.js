@@ -30,7 +30,7 @@ export default function MainPage() {
     //   label: language === "en" ? "Profile" : "الملف الشخصي" 
     // },
     { path: "/emotion-detection", label: language === "en" ? "Emotion Detection" : "اكتشاف العواطف" },
-    { path: "/about", label: language === "en" ? "About" : "عن النظام" },
+    { path: "/AboutMain", label: language === "en" ? "About" : "عن النظام" },
     { path: "/help", label: language === "en" ? "Help" : "مساعدة" },
     {
       path: "/", 
@@ -162,7 +162,7 @@ export default function MainPage() {
 
         <motion.button
           className="learn-more-button"
-          onClick={() => navigate("/about")}
+          onClick={() => navigate("/AboutMain")}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
