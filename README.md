@@ -2,7 +2,7 @@ How to run this project:
 
 Step 1: Clone the repository
 
-- Copy the link to this repository 
+- Copy the link to this repository "https://github.com/SalsabeelSaleh/capstone-new.git"
 - Open a terminal and enter the following command
 git clone “repository link”
 
